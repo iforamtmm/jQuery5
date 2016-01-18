@@ -30,7 +30,6 @@
     </style>
     <script>
         $(function(){
-            $("#button1").click(function(){
                 $.getJSON("UserInfo1.json",function(data){
                     $("#divTip").empty();
                     var strHTML="";
@@ -40,14 +39,13 @@
                     $("#divTip").html(strHTML);
                 });
             });
-        });
     </script>
 </head>
 <body>
 <div  class="divFrame">
-    <div class="divTitle">
-        <input type="button" id="button1" value="获取数据" class="btn"/>
-    </div>
+    <!--<div class="divTitle">-->
+        <!--<input type="button" id="button1" value="获取数据" class="btn"/>-->
+    <!--</div>-->
     <div class="divContent">
         <div id="divTip"></div>
     </div>
