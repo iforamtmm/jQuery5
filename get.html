@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="JS/jquery-2.1.4.js"></script>
+    <script>
+    $(function(){
+           $.get("UserInfo.json",function(data){
+               $("#divTip").empty();
+               var strHTML="";
+               $(data).find("User")
+                       .each(function(){
+                           var $strUser=$(this);
+                           strHTML+="标题:"+$strUser.find("name").text()+"<br/>"+"<hr/>";
+                       });
+               $("#divTip").html(strHTML);
+           }) ;
+       });
+    </script>
+</head>
+<body>
+<div>
+    <div class="divFrame">
+        <input type="button" id="button1" class="btn" value="获取数据"/>
+    </div>
+    <div class="divContent">
+        <div id="divTip"></div>
+    </div>
+</div>
+</body>
+</html>

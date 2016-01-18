@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="JS/jquery-2.1.4.js"></script>
+    <style>
+        .divFrame{
+            border:solid 1px #666;
+            width: 197px;
+            text-align: center;
+        }
+        .divFrame .divTitle{
+            background-color: #eee;
+            padding: 5px 0px 5px 0px;
+        }
+        .divFrame .divContent{
+            padding: 5px 0px 5px 0px;
+        }
+        .divFrame .divContent img{
+            border: solid 1px #eee;
+            padding: 2px;
+            width: 180px;
+            height: auto;
+        }
+    </style>
+    <script>
+        $(function(){
+           var $img=$("img");
+            var $sel=$("select");
+            $sel.change(function(){
+               var fltValue=$sel.val();
+                $img.fadeTo(3000,fltValue);
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="divFrame">
+    <div class="divTitle">
+        <select id="Select1">
+            <option value="0.2">0.2</option>
+            <option value="0.4">0.4</option>
+            <option value="0.6">0.6</option>
+            <option value="0.8">0.8</option>
+            <option value="1" selected="selected">1</option>
+        </select>
+    </div>
+    <div class="divContent">
+        <img src="img/1.jpg" alt="" title="风景图片"/>
+    </div>
+</div>
+</body>
+</html>
