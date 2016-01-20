@@ -17,13 +17,19 @@
     </style>
     <script type="text/javascript">
         $(function(){
-            $.getJSON("UserInfo.json",function(data){
+            $.get("UserInfo.xml",function(data){
                 $("#divTip").empty();
                 var strHTML="";
-                var result=data.result;
-                $.each(result,function(InfoIndex,Info){
-                   strHTML+=Info["title"]+"<br/>"+"<hr/>"
-                });
+                $(data).find("user")
+                        .each(function(){
+                            var $strUser=$(this);
+                            strHTML+="姓名:"+
+                                    $strUser.find("name").text()+"<br/>";
+                            strHTML+="性别:"+
+                                     $strUser.find("sex").text()+"<br/>";
+                            strHTML+="邮箱:"+
+                                    $strUser.find("email").text()+"<hr/>";
+                        });
                 $("#divTip").html(strHTML);
                 $("#divTip hr:last").css("display","none");
             }) ;

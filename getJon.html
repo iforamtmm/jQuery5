@@ -8,49 +8,29 @@
         body{
             font-size: 13px;
         }
-        .divFrame{
-            width: 260px;
-            border: solid 1px #666;
-        }
-        .divFrame .divTitle{
+        .divTip{
+            width: 460px;
             padding: 5px;
+            border: solid 1px #666;
             background-color: #eee;
         }
-        .divFrame .divContent{
-            padding: 8px;
-        }
-        .divFrame .divContent{
-            font-size: 14px;
-        }
-        .btn{
-            border: solid 1px #666;
-            padding: 2px;
-            width: 80px;
-        }
     </style>
-    <script>
+    <script type="text/javascript">
         $(function(){
-            $("#button1").click(function(){
-                $.getJSON("UserInfo1.json",function(data){
-                    $("#divTip").empty();
-                    var strHTML="";
-                    $.each(data,function(InfoIndex,Info){
-                        strHTML+=Info["title"]+"<br/>"+"<hr/>";
-                    });
-                    $("#divTip").html(strHTML);
+            $.getJSON("UserInfo.json",function(data){
+                $("#divTip").empty();
+                var strHTML="";
+                var result=data.result;
+                $.each(result,function(InfoIndex,Info){
+                    strHTML+=Info["title"]+"<br/>"+"<hr/>"
                 });
-            });
+                $("#divTip").html(strHTML);
+                $("#divTip hr:last").css("display","none");
+            }) ;
         });
     </script>
 </head>
 <body>
-<div  class="divFrame">
-    <div class="divTitle">
-        <input type="button" id="button1" value="获取数据" class="btn"/>
-    </div>
-    <div class="divContent">
-        <div id="divTip"></div>
-    </div>
-</div>
+<div id="divTip" class="divTip"></div>
 </body>
 </html>

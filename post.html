@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="JS/jquery-2.1.4.js"></script>
+    <style type="text/css">
+        body{
+            font-size: 13px;
+        }
+        .divTip{
+            width: 460px;
+            padding: 5px;
+            border: solid 1px #666;
+            background-color: #eee;
+        }
+    </style>
+    <script>
+        $(function(){
+            $.post("UserInfo.aspx",$("#frmUserInfo").serialize(),
+                    function(data){
+                $("#divTip")
+                        .empty()
+                        .html(data);
+            });
+        });
+    </script>
+</head>
+<body>
+<div>姓名:<input></div>
+    <div id="divTip" class="divTip"></div>
+</body>
+</html>
